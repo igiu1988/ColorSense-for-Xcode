@@ -55,6 +55,7 @@
 		_rgbaNSColorRegex = [NSRegularExpression regularExpressionWithPattern:@"\\[\\s*NSColor\\s+colorWith(Calibrated|Device)Red:\\s*([0-9]*\\.?[0-9]*f?)\\s*(\\/\\s*[0-9]*\\.?[0-9]*f?)?\\s+green:\\s*([0-9]*\\.?[0-9]*f?)\\s*(\\/\\s*[0-9]*\\.?[0-9]*f?)?\\s+blue:\\s*([0-9]*\\.?[0-9]*f?)\\s*(\\/\\s*[0-9]*\\.?[0-9]*f?)?\\s+alpha:\\s*([0-9]*\\.?[0-9]*f?)\\s*(\\/\\s*[0-9]*\\.?[0-9]*f?)?\\s*\\]" options:0 error:NULL];
 		_whiteNSColorRegex = [NSRegularExpression regularExpressionWithPattern:@"\\[\\s*NSColor\\s+colorWith(Calibrated|Device)White:\\s*([0-9]*\\.?[0-9]*f?)\\s*(\\/\\s*[0-9]*\\.?[0-9]*f?)?\\s+alpha:\\s*([0-9]*\\.?[0-9]*f?)\\s*(\\/\\s*[0-9]*\\.?[0-9]*f?)?\\s*\\]" options:0 error:NULL];
 		_constantColorRegex = [NSRegularExpression regularExpressionWithPattern:@"\\[\\s*(UI|NS)Color\\s+(black|darkGray|lightGray|white|gray|red|green|blue|cyan|yellow|magenta|orange|purple|brown|clear)Color\\s*\\]" options:0 error:NULL];
+        _hexColorRegex = [NSRegularExpression regularExpressionWithPattern:@"RGBCOLOR_HEX\\(0[xX][0-9a-fA-F]{6}\\)" options:0 error:NULL];
 	}
 	return self;
 }
@@ -326,6 +327,47 @@
 			*stop = YES;
 		}
 	}];
+    
+    if (!foundColor) {
+        [_hexColorRegex enumerateMatchesInString:text options:0 range:NSMakeRange(0, text.length) usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
+            NSRange colorRange = [result range];
+            if (selectedRange.location >= colorRange.location && NSMaxRange(selectedRange) <= NSMaxRange(colorRange)) {
+                
+                // TODO: 可以根据RGBCOLOR_HEX这个来判断出是什么类型，待做
+//                NSString *typeIndicator = [text substringWithRange:[result rangeAtIndex:1]];
+//                if ([typeIndicator rangeOfString:@"init"].location != NSNotFound) {
+//                    foundColorType = OMColorTypeUIRGBAInit;
+//                } else {
+//                    foundColorType = OMColorTypeUIRGBA;
+//                }
+                foundColorType = OMColorTypeUIRGBA;
+                
+                
+                /*
+                 #define RGBCOLOR_HEX(hexColor) [NSColor colorWithRed: (((hexColor >> 16) & 0xFF))/255.0f         \
+                 green: (((hexColor >> 8) & 0xFF))/255.0f             \
+                 blue: ((hexColor & 0xFF))/255.0f                    \
+                 alpha: 1]
+
+                 */
+                
+                NSString *string = [text substringWithRange:[result rangeAtIndex:0]];
+                NSString *hex = [string substringWithRange:NSMakeRange(13, 8)];
+                unsigned long hexNumber = strtoul([hex UTF8String],0,16);
+                float red = (((hexNumber >> 16) & 0xFF))/255.0f;
+                float green = (((hexNumber >> 8) & 0xFF))/255.0f;
+                float blue = ((hexNumber & 0xFF))/255.0f;
+                
+                foundColor = [NSColor colorWithCalibratedRed:red green:green blue:blue alpha:1];
+                foundColorRange = colorRange;
+                *stop = YES;
+            }
+        }];
+    }
+    
+    
+    
+    
 	
 	if (!foundColor) {
 		[_whiteUIColorRegex enumerateMatchesInString:text options:0 range:NSMakeRange(0, text.length) usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
