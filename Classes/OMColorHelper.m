@@ -9,6 +9,7 @@
 #import "OMColorHelper.h"
 #import "OMPlainColorWell.h"
 #import "OMColorFrameView.h"
+#import "WYCustomColorRegexWindowController.h"
 
 #define kOMColorHelperHighlightingDisabled	@"OMColorHelperHighlightingDisabled"
 #define kOMColorHelperInsertionMode			@"OMColorHelperInsertionMode"
@@ -85,6 +86,10 @@
 		NSMenuItem *insertColorMenuItem = [[NSMenuItem alloc] initWithTitle:@"Insert Color..." action:@selector(insertColor:) keyEquivalent:@""];
 		[insertColorMenuItem setTarget:self];
 		[[editMenuItem submenu] addItem:insertColorMenuItem];
+        
+        NSMenuItem *regexControllerItem = [[NSMenuItem alloc] initWithTitle:@"Custom Color Regex" action:@selector(customColorRegex:) keyEquivalent:@""];
+        [regexControllerItem setTarget:self];
+        [[editMenuItem submenu] addItem:regexControllerItem];
 	}
 	
 	BOOL highlightingEnabled = ![[NSUserDefaults standardUserDefaults] boolForKey:kOMColorHelperHighlightingDisabled];
@@ -188,6 +193,13 @@
 - (void)activateColorWell
 {
 	[self.colorWell activate:YES];
+}
+
+- (void)customColorRegex:(id)sender{
+    
+    NSLog(@"customColorRegex");
+    _regexController = [[WYCustomColorRegexWindowController alloc] initWithWindowNibName:@"WYCustomColorRegexWindowController"];
+    [_regexController showWindow:nil];
 }
 
 #pragma mark - Text Selection Handling
@@ -327,6 +339,8 @@
 			*stop = YES;
 		}
 	}];
+    
+//    _hexColorRegex = [NSRegularExpression regularExpressionWithPattern:@"RGBCOLOR_HEX\\(0[xX][0-9a-fA-F]{6}\\)" options:0 error:NULL];
     
     if (!foundColor) {
         [_hexColorRegex enumerateMatchesInString:text options:0 range:NSMakeRange(0, text.length) usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {

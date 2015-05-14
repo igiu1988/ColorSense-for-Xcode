@@ -10,6 +10,8 @@
 		7F2EB89C145057F200E97A87 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F2EB899145057EA00E97A87 /* AppKit.framework */; };
 		7F6EE2BF15FA6F3B00BA114A /* OMColorFrameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EE2BE15FA6F3B00BA114A /* OMColorFrameView.m */; };
 		7FDADE3A15FA6CA400A847E3 /* OMPlainColorWell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDADE3915FA6CA400A847E3 /* OMPlainColorWell.m */; };
+		D39053D81B04F51200F5F294 /* WYCustomColorRegexWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A0A32F1B04EA5A0001AE8B /* WYCustomColorRegexWindowController.m */; };
+		D39053DA1B04F78F00F5F294 /* WYCustomColorRegexWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D39053D61B04F43F00F5F294 /* WYCustomColorRegexWindowController.xib */; };
 		DA1B5D020E64686800921439 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 089C1672FE841209C02AAC07 /* Foundation.framework */; };
 		DA37E2DC0E6291C8001BDFEF /* OMColorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DA37E2DB0E6291C8001BDFEF /* OMColorHelper.m */; };
 /* End PBXBuildFile section */
@@ -24,6 +26,10 @@
 		7FDADE3915FA6CA400A847E3 /* OMPlainColorWell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMPlainColorWell.m; sourceTree = "<group>"; };
 		8D5B49B6048680CD000E48DA /* OMColorSense.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OMColorSense.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D39053D51B04F43F00F5F294 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WYCustomColorRegexWindowController.xib; sourceTree = "<group>"; };
+		D39053D71B04F4AE00F5F294 /* Window.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Window.xib; sourceTree = "<group>"; };
+		D3A0A32E1B04EA5A0001AE8B /* WYCustomColorRegexWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYCustomColorRegexWindowController.h; sourceTree = "<group>"; };
+		D3A0A32F1B04EA5A0001AE8B /* WYCustomColorRegexWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYCustomColorRegexWindowController.m; sourceTree = "<group>"; };
 		DA37E2DB0E6291C8001BDFEF /* OMColorHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMColorHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +91,10 @@
 				7F6EE2BE15FA6F3B00BA114A /* OMColorFrameView.m */,
 				7FDADE3815FA6CA400A847E3 /* OMPlainColorWell.h */,
 				7FDADE3915FA6CA400A847E3 /* OMPlainColorWell.m */,
+				D3A0A32E1B04EA5A0001AE8B /* WYCustomColorRegexWindowController.h */,
+				D3A0A32F1B04EA5A0001AE8B /* WYCustomColorRegexWindowController.m */,
+				D39053D61B04F43F00F5F294 /* WYCustomColorRegexWindowController.xib */,
+				D39053D71B04F4AE00F5F294 /* Window.xib */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -98,6 +108,7 @@
 			buildPhases = (
 				8D5B49B1048680CD000E48DA /* Sources */,
 				8D5B49B3048680CD000E48DA /* Frameworks */,
+				D39053D91B04F78C00F5F294 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -115,7 +126,7 @@
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0630;
 			};
 			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "OMColorSense" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -136,11 +147,23 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		D39053D91B04F78C00F5F294 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D39053DA1B04F78F00F5F294 /* WYCustomColorRegexWindowController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8D5B49B1048680CD000E48DA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D39053D81B04F51200F5F294 /* WYCustomColorRegexWindowController.m in Sources */,
 				DA37E2DC0E6291C8001BDFEF /* OMColorHelper.m in Sources */,
 				7FDADE3A15FA6CA400A847E3 /* OMPlainColorWell.m in Sources */,
 				7F6EE2BF15FA6F3B00BA114A /* OMColorFrameView.m in Sources */,
@@ -149,12 +172,22 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		D39053D61B04F43F00F5F294 /* WYCustomColorRegexWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D39053D51B04F43F00F5F294 /* en */,
+			);
+			name = WYCustomColorRegexWindowController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		1DEB913B08733D840010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
@@ -177,7 +210,6 @@
 		1DEB913F08733D840010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CURRENT_PROJECT_VERSION = 1.0.1;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -185,6 +217,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INSTALL_PATH = "$(HOME)/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
 			name = Debug;
