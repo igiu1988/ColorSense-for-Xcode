@@ -12,6 +12,7 @@
 		7FDADE3A15FA6CA400A847E3 /* OMPlainColorWell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDADE3915FA6CA400A847E3 /* OMPlainColorWell.m */; };
 		D39053D81B04F51200F5F294 /* WYCustomColorRegexWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A0A32F1B04EA5A0001AE8B /* WYCustomColorRegexWindowController.m */; };
 		D39053DA1B04F78F00F5F294 /* WYCustomColorRegexWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D39053D61B04F43F00F5F294 /* WYCustomColorRegexWindowController.xib */; };
+		D3F253AB1B05767A0029317B /* OMCustomColorSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F253AA1B05767A0029317B /* OMCustomColorSetting.m */; };
 		DA1B5D020E64686800921439 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 089C1672FE841209C02AAC07 /* Foundation.framework */; };
 		DA37E2DC0E6291C8001BDFEF /* OMColorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DA37E2DB0E6291C8001BDFEF /* OMColorHelper.m */; };
 /* End PBXBuildFile section */
@@ -30,6 +31,8 @@
 		D39053D71B04F4AE00F5F294 /* Window.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Window.xib; sourceTree = "<group>"; };
 		D3A0A32E1B04EA5A0001AE8B /* WYCustomColorRegexWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYCustomColorRegexWindowController.h; sourceTree = "<group>"; };
 		D3A0A32F1B04EA5A0001AE8B /* WYCustomColorRegexWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYCustomColorRegexWindowController.m; sourceTree = "<group>"; };
+		D3F253A91B05767A0029317B /* OMCustomColorSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMCustomColorSetting.h; sourceTree = "<group>"; };
+		D3F253AA1B05767A0029317B /* OMCustomColorSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMCustomColorSetting.m; sourceTree = "<group>"; };
 		DA37E2DB0E6291C8001BDFEF /* OMColorHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMColorHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +97,8 @@
 				D3A0A32E1B04EA5A0001AE8B /* WYCustomColorRegexWindowController.h */,
 				D3A0A32F1B04EA5A0001AE8B /* WYCustomColorRegexWindowController.m */,
 				D39053D61B04F43F00F5F294 /* WYCustomColorRegexWindowController.xib */,
+				D3F253A91B05767A0029317B /* OMCustomColorSetting.h */,
+				D3F253AA1B05767A0029317B /* OMCustomColorSetting.m */,
 				D39053D71B04F4AE00F5F294 /* Window.xib */,
 			);
 			path = Classes;
@@ -164,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D39053D81B04F51200F5F294 /* WYCustomColorRegexWindowController.m in Sources */,
+				D3F253AB1B05767A0029317B /* OMCustomColorSetting.m in Sources */,
 				DA37E2DC0E6291C8001BDFEF /* OMColorHelper.m in Sources */,
 				7FDADE3A15FA6CA400A847E3 /* OMPlainColorWell.m in Sources */,
 				7F6EE2BF15FA6F3B00BA114A /* OMColorFrameView.m in Sources */,

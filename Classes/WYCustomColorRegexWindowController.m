@@ -10,7 +10,7 @@
 
 @interface WYCustomColorRegexWindowController ()
 {
-    __weak IBOutlet NSTextField *_textField;
+    __weak IBOutlet NSTextField *_regexTextField;
     
 }
 @end
@@ -28,8 +28,9 @@
 - (void)windowDidLoad {
     [super windowDidLoad];
     
-    [_textField setStringValue:@"汪洋"];
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    NSLog(@"%@", [_regexTextField stringValue]);
+    
+    
 }
 
 @end

@@ -31,7 +31,7 @@ BOOL OMColorTypeIsNSColor(OMColorType colorType) { return colorType >= OMColorTy
 
 //TODO: Maybe support HSB and CMYK color types...
 
-@class OMColorFrameView, OMPlainColorWell, WYCustomColorRegexWindowController;
+@class OMColorFrameView, OMPlainColorWell, WYCustomColorRegexWindowController, OMCustomColorSetting;
 
 @interface OMColorHelper : NSObject {
 	
@@ -48,7 +48,7 @@ BOOL OMColorTypeIsNSColor(OMColorType colorType) { return colorType >= OMColorTy
 	NSRegularExpression *_whiteUIColorRegex;
 	NSRegularExpression *_constantColorRegex;
     NSRegularExpression *_hexColorRegex;
-    
+    NSRegularExpression *_customColorRegex;
     
 }
 

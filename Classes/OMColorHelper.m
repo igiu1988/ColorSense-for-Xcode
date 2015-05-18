@@ -10,6 +10,7 @@
 #import "OMPlainColorWell.h"
 #import "OMColorFrameView.h"
 #import "WYCustomColorRegexWindowController.h"
+#import "OMCustomColorSetting.h"
 
 #define kOMColorHelperHighlightingDisabled	@"OMColorHelperHighlightingDisabled"
 #define kOMColorHelperInsertionMode			@"OMColorHelperInsertionMode"
@@ -57,6 +58,8 @@
 		_whiteNSColorRegex = [NSRegularExpression regularExpressionWithPattern:@"\\[\\s*NSColor\\s+colorWith(Calibrated|Device)White:\\s*([0-9]*\\.?[0-9]*f?)\\s*(\\/\\s*[0-9]*\\.?[0-9]*f?)?\\s+alpha:\\s*([0-9]*\\.?[0-9]*f?)\\s*(\\/\\s*[0-9]*\\.?[0-9]*f?)?\\s*\\]" options:0 error:NULL];
 		_constantColorRegex = [NSRegularExpression regularExpressionWithPattern:@"\\[\\s*(UI|NS)Color\\s+(black|darkGray|lightGray|white|gray|red|green|blue|cyan|yellow|magenta|orange|purple|brown|clear)Color\\s*\\]" options:0 error:NULL];
         _hexColorRegex = [NSRegularExpression regularExpressionWithPattern:@"RGBCOLOR_HEX\\(0[xX][0-9a-fA-F]{6}\\)" options:0 error:NULL];
+        
+        _customColorRegex = [NSRegularExpression regularExpressionWithPattern:[OMCustomColorSetting defaultSetting].customColorRegex options:0 error:NULL];
 	}
 	return self;
 }
@@ -355,15 +358,7 @@
 //                    foundColorType = OMColorTypeUIRGBA;
 //                }
                 foundColorType = OMColorTypeUIRGBA;
-                
-                
-                /*
-                 #define RGBCOLOR_HEX(hexColor) [NSColor colorWithRed: (((hexColor >> 16) & 0xFF))/255.0f         \
-                 green: (((hexColor >> 8) & 0xFF))/255.0f             \
-                 blue: ((hexColor & 0xFF))/255.0f                    \
-                 alpha: 1]
 
-                 */
                 
                 NSString *string = [text substringWithRange:[result rangeAtIndex:0]];
                 NSString *hex = [string substringWithRange:NSMakeRange(13, 8)];
